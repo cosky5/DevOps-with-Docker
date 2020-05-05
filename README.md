@@ -9,4 +9,11 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 803af9a6faa2        nginx               "nginx -g 'daemon of…"   2 hours ago         Exited (0) 29 seconds ago                         agitated_lovelace
 f6ae7ee8b93a        nginx               "nginx -g 'daemon of…"   2 hours ago         Exited (0) 10 seconds ago                         crazy_chandrasekhar
 ```
+# 1.2 Cleanup
+Result after cleaning the docker daemon from all images and containers.
+```
+docker ps -a ; docker images
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
 
+```
