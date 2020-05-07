@@ -38,4 +38,12 @@ You found the correct password. Secret message is:
 ```
 
 ## 1.4 Secret message
-The secret message after starting image `devopsdockeruh/exec_bash_exercise` is:
+The secret message after starting image `devopsdockeruh/exec_bash_exercise` is: `Docker is easy`
+--> docker run -d devopsdockeruh/exec_bash_exercise
+Digest: sha256:c463832132d1fb0b8b3b60348a6fc36fda7512a4ef2d1050e8bea7b6a6d7a2f3
+
+--> docker exec -it 0a6e bash
+root@0a6ec02b9644:/usr/app# cat logs.txt 
+	Secret message is:
+	"Docker is easy"
+		
