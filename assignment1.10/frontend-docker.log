@@ -1,0 +1,70 @@
+```
+--> docker build -t frontend-example .
+Sending build context to Docker daemon  2.048kB
+Step 1/10 : FROM ubuntu
+ ---> 1d622ef86b13
+Step 2/10 : RUN apt-get update
+ ---> Running in bc48e2e2571f
+Removing intermediate container bc48e2e2571f
+ ---> c00a62728358
+Step 3/10 : RUN apt-get install -y curl git > /dev/null 2>&1
+ ---> Running in d54e5b00231b
+Removing intermediate container d54e5b00231b
+ ---> 91f5442d3d31
+Step 4/10 : RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+ ---> Running in d8a91883956a
+Removing intermediate container d8a91883956a
+ ---> 24ed98e8d8f1
+Step 5/10 : RUN apt-get install -y nodejs > /dev/null 2>&1
+ ---> Running in eea1d2be5067
+Removing intermediate container eea1d2be5067
+ ---> d98b7b2728d1
+Step 6/10 : RUN git clone https://github.com/docker-hy/frontend-example-docker.git
+ ---> Running in e9bf366bd77b
+Cloning into 'frontend-example-docker'...
+Removing intermediate container e9bf366bd77b
+ ---> 68ef0728caf9
+Step 7/10 : WORKDIR frontend-example-docker
+ ---> Running in 0a8456c0612b
+Removing intermediate container 0a8456c0612b
+ ---> b0c4c0fc994f
+Step 8/10 : RUN npm install
+ ---> Running in b041ab6ddbbc
+
+> core-js@2.6.11 postinstall /frontend-example-docker/node_modules/core-js
+> node -e "try{require('./postinstall')}catch(e){}"
+
+Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfilling JavaScript standard library!
+
+added 1462 packages from 472 contributors and audited 12930 packages in 16.299s
+
+28 packages are looking for funding
+  run `npm fund` for details
+
+found 1 low severity vulnerability
+  run `npm audit fix` to fix them, or `npm audit` for details
+Removing intermediate container b041ab6ddbbc
+ ---> 1e602029bd8c
+Step 9/10 : EXPOSE 5000/tcp
+ ---> Running in bf9afd4ba5e9
+Removing intermediate container bf9afd4ba5e9
+ ---> d7f5ba8011bf
+Step 10/10 : CMD npm start
+ ---> Running in 0d1f326f55a3
+Removing intermediate container 0d1f326f55a3
+ ---> bd6156cf29d6
+Successfully built bd6156cf29d6
+Successfully tagged frontend-example:latest
+
+--> docker run -p 5000:5000 frontend-example
+
+docker run -p 5000:5000 frontend-example
+
+> frontend-example-docker@1.0.0 start /frontend-example-docker
+> webpack --mode production && serve -s -l 5000 dist
+
+    Entrypoint mini-css-extract-plugin = *
+    [0] ./node_modules/css-loader!./src/assets/custom.css 340 bytes {0} [built]
+        + 1 hidden module
+INFO: Accepting connections at http://localhost:5000
+```

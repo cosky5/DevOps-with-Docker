@@ -1,0 +1,24 @@
+### Curler
+```
+--> docker build -t curler .
+
+--> docker run -i curler
+
+```
+
+Input website:
+
+```
+helsinki.fi
+Searching..
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   231  100   231    0     0   4620      0 --:--:-- --:--:-- --:--:--  4620
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>301 Moved Permanently</title>
+</head><body>
+<h1>Moved Permanently</h1>
+<p>The document has moved <a href="http://www.helsinki.fi/">here</a>.</p>
+</body></html>
+```
