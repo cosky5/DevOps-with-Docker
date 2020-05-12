@@ -1,0 +1,4 @@
+FROM devopsdockeruh/first_volume_exercise
+
+USER root
+
