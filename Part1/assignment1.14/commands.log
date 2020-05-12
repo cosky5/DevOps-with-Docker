@@ -1,0 +1,12 @@
+### Commands used:
+First, is to build the `rails app`
+```
+docker build -t rails-example-project .
+```
+Next, is to run the `Dockerfile` and map it into it respective port.
+```
+docker run -p 3000:3000 rails-example-project
+```
+
+
+
