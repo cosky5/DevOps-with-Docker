@@ -1,0 +1,51 @@
+### Commands used
+-> docker build -t backend-example-docker .
+Step 1/10 : FROM ubuntu
+ ---> 1d622ef86b13
+Step 2/10 : RUN apt-get update && apt-get install -y curl git
+ ---> Running in cff712b9c624
+Removing intermediate container cff712b9c624
+ ---> 10793bd08e9f
+Step 3/10 : WORKDIR /backend-example-docker
+ ---> Running in 02bcd9d85085
+Removing intermediate container 02bcd9d85085
+ ---> 3e59436303ce
+Step 4/10 : RUN curl -sL https://deb.nodesource.com/setup_10.x | bash
+ ---> Running in 4edf779db96d
+Removing intermediate container 4edf779db96d
+ ---> 517ddd90c589
+Step 5/10 : RUN git clone https://github.com/docker-hy/backend-example-docker.git
+ ---> Running in d0c731d9158e
+Cloning into 'backend-example-docker'...
+Removing intermediate container d0c731d9158e
+ ---> 8eb54f2f201c
+Step 6/10 : RUN apt install -y nodejs
+ ---> Running in 27d8c19f41d9
+Removing intermediate container 27d8c19f41d9
+ ---> c9be0a977e98
+Step 7/10 : WORKDIR backend-example-docker
+ ---> Running in af0dcb23d1d7
+Removing intermediate container af0dcb23d1d7
+ ---> aff34f2611c9
+Step 8/10 : RUN npm install
+ ---> Running in aefbc5451064
+
+> nodemon@1.18.9 postinstall /backend-example-docker/backend-example-docker/node_modules/nodemon
+> node bin/postinstall || exit 0
+Removing intermediate container aefbc5451064
+ ---> 741c8be10693
+Step 9/10 : EXPOSE 8000
+ ---> Running in 8e59f3716c1f
+Removing intermediate container 8e59f3716c1f
+ ---> f2170630d691
+Step 10/10 : CMD ["npm", "start"]
+ ---> Running in 2775b8d530b9
+Removing intermediate container 2775b8d530b9
+ ---> 06df06cd7ac5
+Successfully built 06df06cd7ac5
+Successfully tagged backend-example-docker:latest
+-> touch logs.txt && docker run -p 8000:8000 -v $(pwd)/logs.txt:/app/backend-example-docker/logs.txt -d backend-example-docker
+-> curl localhost:8000
+Port configured correctly, generated message in logs.txt
+
+
